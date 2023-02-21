@@ -42,13 +42,17 @@
                         Types of Nonsense
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Tech</a></li>
-                        <li><a class="dropdown-item" href="#">Education</a></li>
-                        <li><a class="dropdown-item" href="#">Entertainment</a></li>
+                        <li><a class="dropdown-item"
+                               href="{{url_for('post_category', category='Tech')}}">Tech</a></li>
+                        <li><a class="dropdown-item"
+                               href="{{url_for('post_category', category='Education')}}">Education</a></li>
+                        <li><a class="dropdown-item"
+                               href="{{url_for('post_category', category='Entertainment')}}">Entertainment</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Random Thoughts</a></li>
+                        <li><a class="dropdown-item"
+                               href="{{url_for('post_category', category='Random Thoughts')}}">Random Thoughts</a></li>
                     </ul>
                 </li>
             </ul>

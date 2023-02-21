@@ -185,9 +185,16 @@ def show_post(post_id):
     return render_template('post.html', post=requested_post)
 
 
+@app.route('/post-category/<category>')
+def post_category(category):
+    posts = BlogPost.query.filter_by(genre=category)
+    return render_template('post_category.html', posts=posts, category=category, user=current_user)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
 
 
 # TODO: Make blog post page
 # TODO: Make blog list better
+# TODO: Display posts by category

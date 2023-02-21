@@ -1,9 +1,11 @@
 {% include "header.html" %}
 
-<h1>{{post.title}}</h1>
-<h2>{{post.subtitle}}</h2>
+<div class="post-content">
+    <h1 class="post-title">{{post.title}}</h1>
+    <h2 class="subtitle">{{post.subtitle}}</h2>
 
-<p>{{post.body}}</p>
+    {{post.body|safe}}
+</div>
 
 
 {% include "footer.html" %}

@@ -51,6 +51,16 @@ margin: 10% 20%;
 margin-bottom: 5%;
 }
 
+.post-content {
+margin: 0 10%;
+}
+
+.post-title {
+margin-top: 5%;
+text-align: center;
+font-size: 3.5rem;
+}
+
 .form-container {
 height: 80vh;
 width: 500px;
