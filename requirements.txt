@@ -1,0 +1,9 @@
+flask
+flask_bootstrap
+flask_login
+WTForms
+flask_ckeditor
+flask_wtf
+flask_sqlalchemy
+sqlalchemy
+werkzeug

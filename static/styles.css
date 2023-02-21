@@ -1,0 +1,79 @@
+.title-container {
+background-image: linear-gradient(rgba(0,0,0,0.5),
+rgba(0,0,0,0.5)),
+url('https://images.unsplash.com/photo-1437419764061-2473afe69fc2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80');
+
+background-repeat: no-repeat;
+background-size: cover;
+height: 100vh;
+text-align: center;
+}
+
+.navbar {
+position: relative;
+color: #E3F1FB;
+}
+
+.bottom-container {
+text-align: center;
+background-color: #e8ebed;
+padding: 3% 0 0 1%
+}
+
+.navbar-brand {
+font-weight: bold;
+}
+
+.title {
+text-align: center;
+position: relative;
+color: white;
+padding: 10%;
+}
+
+.title h1 {
+font-size: 3rem;
+}
+
+.subtitle {
+margin: 5%;
+}
+
+.page-title {
+text-align: center;
+}
+
+.post-list {
+margin: 10% 20%;
+}
+
+.post-item {
+margin-bottom: 5%;
+}
+
+.form-container {
+height: 80vh;
+width: 500px;
+padding: 5%;
+}
+
+.form-control {
+margin: 10px 0;
+}
+
+#submit {
+margin: 10px 0;
+}
+
+.footer-link {
+font-size: 1.5rem;
+text-decoration: none;
+}
+
+.btn-contact {
+margin: 10px;
+}
+
+#copyright {
+margin-top: 20px;
+}
