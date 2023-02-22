@@ -4,7 +4,6 @@
         <h1>High Quality Nonsense</h1>
         <h3 class="main-subtitle">A collection of random musings/ramblings</h3>
 
-
         <br>
         {% if logged_in %}
         <h2>Welcome, {{user.name}}!</h2>
@@ -16,13 +15,12 @@
     {% for post in posts %}
     <div class="post-item">
         <h3><a class="post-list-title" href="{{url_for('show_post', post_id=post.id)}}">{{post.title}}</a></h3>
-        <p>{{post.subtitle}}</p>
+        <span>{{post.subtitle}}</span>
         <p><i>({{post.date}})</i></p>
         {% if user.id == 1 %}
         <a href="{{url_for('delete_post', post_id=post.id) }}">✘</a>
         {% endif %}
     </div>
-
     {% endfor %}
 </div>
 
