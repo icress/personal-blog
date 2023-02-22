@@ -1,9 +1,16 @@
 {% include "header.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 <div class="container-fluid form-container">
-   <h1>Log In</h1>
+    <h1>Log In</h1>
 
-{{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+    {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "dark"}) }}
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <p class="error-message">{{message}}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
 </div>
 
 

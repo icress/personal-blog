@@ -207,4 +207,5 @@ if __name__ == '__main__':
 # TODO: Include image on blog post page
 # TODO: Make blog list better
 # TODO: Password specs
-
+# TODO: Email validation: line 9 on wtforms.validators says to import email_validator, but it isn't working
+# TODO: Error messages if account doesn't exist or if it already exists

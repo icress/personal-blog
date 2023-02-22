@@ -17,6 +17,12 @@ height: 100vh;
 text-align: center;
 }
 
+@media (max-width: 900px) {
+.title-container {
+height: 50vh;
+}
+}
+
 .category-container {
 background-size: cover;
 height: 50vh;
@@ -48,8 +54,12 @@ padding: 10%;
 font-size: 3rem;
 }
 
+.main-subtitle {
+margin: 5%;
+}
+
 .subtitle {
-margin: 12% 0 0;
+margin: 12% 0 5%;
 }
 
 .page-title {
@@ -58,7 +68,7 @@ text-align: center;
 
 .post-list {
 margin: 10% 0% 20%;
-padding-left: 20%;
+padding: 0 20%;
 }
 
 .post-item {
@@ -122,4 +132,9 @@ margin: 10px;
 
 #copyright {
 margin-top: 20px;
+}
+
+.error-message {
+color: red;
+font-size: 1.3rem;
 }
