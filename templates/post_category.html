@@ -1,16 +1,20 @@
 {% include 'header.html' %}
 
-<h1>{{category}}</h1>
+
+<div style="background-image: linear-gradient(rgba(0,0,0,0.5),
+rgba(0,0,0,0.5)), url({{filepath}})" class="container-fluid category-container">
+    <h1 class="title">{{category}}</h1>
+</div>
+
 
 <div class="container-fluid post-list">
     {% for post in posts %}
     <div class="post-item">
-        <h3><a href="{{url_for('show_post', post_id=post.id)}}">{{post.title}}</a></h3>
+        <h3><a class="post-list-title" href="{{url_for('show_post', post_id=post.id)}}">{{post.title}}</a></h3>
         <p>{{post.subtitle}}</p>
         <p>{{post.date}}</p>
         {% if user.id == 1 %}
         <a href="{{url_for('delete_post', post_id=post.id) }}">✘</a>
-        <p>test</p>
         {% endif %}
     </div>
 

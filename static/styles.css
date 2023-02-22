@@ -1,3 +1,11 @@
+body {
+background-color: #EEF5F9;
+}
+
+.bg-light {
+color: #EEF5F9;
+}
+
 .title-container {
 background-image: linear-gradient(rgba(0,0,0,0.5),
 rgba(0,0,0,0.5)),
@@ -9,6 +17,11 @@ height: 100vh;
 text-align: center;
 }
 
+.category-container {
+background-size: cover;
+height: 50vh;
+}
+
 .navbar {
 position: relative;
 color: #E3F1FB;
@@ -16,7 +29,7 @@ color: #E3F1FB;
 
 .bottom-container {
 text-align: center;
-background-color: #e8ebed;
+background-color: #95A6B0;
 padding: 3% 0 0 1%
 }
 
@@ -36,7 +49,7 @@ font-size: 3rem;
 }
 
 .subtitle {
-margin: 5%;
+margin: 12% 0 0;
 }
 
 .page-title {
@@ -44,21 +57,39 @@ text-align: center;
 }
 
 .post-list {
-margin: 10% 20%;
+margin: 10% 0% 20%;
+padding-left: 20%;
 }
 
 .post-item {
 margin-bottom: 5%;
 }
 
+.post-list-title {
+color: black;
+}
+
+.post-list-title:hover {
+color: gray;
+}
+
 .post-content {
-margin: 0 10%;
+margin: 0 10% 10%;
 }
 
 .post-title {
 margin-top: 5%;
 text-align: center;
 font-size: 3.5rem;
+}
+
+.post-pic {
+width: 100%;
+height: auto;
+padding: 0;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+border-radius: 1rem;
+margin: 8% 0
 }
 
 .form-container {
@@ -78,6 +109,11 @@ margin: 10px 0;
 .footer-link {
 font-size: 1.5rem;
 text-decoration: none;
+color: black;
+}
+
+.footer-link:hover {
+color: white;
 }
 
 .btn-contact {

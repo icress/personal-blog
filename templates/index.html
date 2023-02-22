@@ -2,7 +2,7 @@
 <div class="container-fluid title-container">
     <div class="title">
         <h1>High Quality Nonsense</h1>
-        <h3 class="subtitle">A collection of random musings/ramblings by Isaac Cress</h3>
+        <h3 class="subtitle">A collection of random musings/ramblings</h3>
 
 
         <br>
@@ -15,12 +15,11 @@
 <div class="container-fluid post-list">
     {% for post in posts %}
     <div class="post-item">
-        <h3><a href="{{url_for('show_post', post_id=post.id)}}">{{post.title}}</a></h3>
+        <h3><a class="post-list-title" href="{{url_for('show_post', post_id=post.id)}}">{{post.title}}</a></h3>
         <p>{{post.subtitle}}</p>
         <p>{{post.date}}</p>
         {% if user.id == 1 %}
         <a href="{{url_for('delete_post', post_id=post.id) }}">✘</a>
-        <p>test</p>
         {% endif %}
     </div>
 

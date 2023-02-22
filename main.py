@@ -188,13 +188,23 @@ def show_post(post_id):
 @app.route('/post-category/<category>')
 def post_category(category):
     posts = BlogPost.query.filter_by(genre=category)
-    return render_template('post_category.html', posts=posts, category=category, user=current_user)
+    category_name = category
+    if category == 'Random Thoughts':
+        category = 'Random-Thoughts'
+        category_name = 'Random Thoughts'
+    img_filepath = f'/static/images/{category}.png'
+    return render_template('post_category.html',
+                           posts=posts,
+                           category=category_name,
+                           user=current_user,
+                           filepath=img_filepath)
 
 
 if __name__ == '__main__':
     app.run(debug=True)
 
 
-# TODO: Make blog post page
+# TODO: Include image on blog post page
 # TODO: Make blog list better
-# TODO: Display posts by category
+# TODO: Password specs
+
