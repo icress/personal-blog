@@ -14,7 +14,7 @@ rgba(0,0,0,0.5)), url({{filepath}})" class="container-fluid category-container">
     <div class="post-item">
         <h3><a class="post-list-title" href="{{url_for('show_post', post_id=post.id)}}">{{post.title}}</a></h3>
         <span>{{post.subtitle}}</span>
-        <p>{{post.date}}</p>
+        <p><i>({{post.date}})</i></p>
         {% if user.id == 1 %}
         <a href="{{url_for('delete_post', post_id=post.id) }}">✘</a>
         {% endif %}

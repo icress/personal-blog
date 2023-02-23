@@ -1,11 +1,12 @@
 {% include "header.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
-
+<h3 class="disclaimer">(This is just a proof of concept website. Please don't use real emails.)</h3>
 <div class="container-fluid form-container">
     <h1>Register</h1>
 
 
-    {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+
+    {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "dark"}) }}
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     {% for message in messages %}

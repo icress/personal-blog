@@ -12,8 +12,7 @@ from functools import wraps
 
 # Configure Flask
 app = Flask(__name__)
-KEY = os.urandom(25)
-app.config['SECRET_KEY'] = KEY
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 
 # Adds CKEditor to app
 ckeditor = CKEditor(app)
@@ -22,7 +21,7 @@ ckeditor = CKEditor(app)
 Bootstrap(app)
 
 # Links app with SQL database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///blog.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -192,6 +191,8 @@ def post_category(category):
     if category == 'Random Thoughts':
         category = 'Random-Thoughts'
         category_name = 'Random Thoughts'
+    elif category == 'Tech':
+        category_name = 'Technology'
     img_filepath = f'/static/images/{category}.png'
     return render_template('post_category.html',
                            posts=posts,
@@ -204,8 +205,5 @@ if __name__ == '__main__':
     app.run(debug=True)
 
 
-# TODO: Include image on blog post page
-# TODO: Make blog list better
-# TODO: Password specs
+# TODO: Comments???
 # TODO: Email validation: line 9 on wtforms.validators says to import email_validator, but it isn't working
-# TODO: Error messages if account doesn't exist or if it already exists
