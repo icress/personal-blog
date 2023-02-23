@@ -7,3 +7,4 @@ flask_wtf
 flask_sqlalchemy
 sqlalchemy
 werkzeug
+gunicorn==20.1.0
