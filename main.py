@@ -92,12 +92,18 @@ def load_user(user_id):
 # Home page
 @app.route('/', methods=["GET", "POST"])
 def home():
-    posts = BlogPost.query.all()
-    return render_template('index.html',
-                           year=year,
-                           user=current_user,
-                           logged_in=current_user.is_authenticated,
-                           posts=posts)
+    try:
+
+        posts = BlogPost.query.all()
+        return render_template('index.html',
+                               year=year,
+                               user=current_user,
+                               logged_in=current_user.is_authenticated,
+                               posts=posts)
+    except Exception as e:
+        print('Error returning the home page')
+        print(f'Here is the error: {e}')
+        print("Here is the database URL: ", os.environ.get('DATABASE_URL'))
 
 
 # Register page
