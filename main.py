@@ -67,8 +67,8 @@ class Comment(db.Model):
 
 
 # This created the database using the classes above
-# with app.app_context():
-#     db.create_all()
+with app.app_context():
+    db.create_all()
 
 
 def admin_only(function):
@@ -103,7 +103,6 @@ def home():
     except Exception as e:
         print('Error returning the home page')
         print(f'Here is the error: {e}')
-        print("Here is the database URL: ", os.environ.get('DATABASE_URL'))
 
 
 # Register page
