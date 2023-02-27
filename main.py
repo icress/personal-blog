@@ -198,12 +198,20 @@ def post_category(category):
         category_name = 'Random Thoughts'
     elif category == 'Tech':
         category_name = 'Technology'
-    img_filepath = f'/static/images/{category}.png'
+    category_pics = {
+        'Random Thoughts': '',
+        'Entertainment': 'https://images.unsplash.com/photo-1513346940221-6f673d962e97?ixlib=rb-4.0.3&'
+                         'ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+        'Technology': 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MH'
+                      'xzZWFyY2h8MTV8fHRlY2h8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
+        'Education': 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MH'
+                     'xwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'
+    }
     return render_template('post_category.html',
                            posts=posts,
                            category=category_name,
                            user=current_user,
-                           filepath=img_filepath)
+                           filepath=category_pics[category_name])
 
 
 if __name__ == '__main__':
