@@ -32,6 +32,7 @@ login_manager.init_app(app)
 year = datetime.now().year
 
 
+# Class used to create the user table in the db
 class User(UserMixin, db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
@@ -42,6 +43,7 @@ class User(UserMixin, db.Model):
     comments = relationship("Comment", back_populates='comment_author')
 
 
+# Class used to create the blog post table in the db
 class BlogPost(db.Model):
     __tablename__ = "blog_posts"
     id = db.Column(db.Integer, primary_key=True)
@@ -56,6 +58,7 @@ class BlogPost(db.Model):
     genre = db.Column(db.String, nullable=False)
 
 
+# Class used to create the comment table in the db
 class Comment(db.Model):
     __tablename__ = 'comments'
     id = db.Column(db.Integer, primary_key=True)
@@ -71,6 +74,7 @@ with app.app_context():
     db.create_all()
 
 
+# Admin decorator function
 def admin_only(function):
     @wraps(function)
     def wrapper(*args, **kwargs):
@@ -148,6 +152,7 @@ def login():
     return render_template('login.html', year=year, form=form)
 
 
+# Logout
 @app.route('/logout')
 def logout():
     logout_user()
@@ -171,9 +176,10 @@ def new_post():
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('home'))
-    return render_template('make-post.html', form=form, logged_in=current_user.is_authenticated)
+    return render_template('make-post.html', form=form, year=year, logged_in=current_user.is_authenticated)
 
 
+# Route to delete selected post
 @app.route("/delete/<int:post_id>")
 @admin_only
 def delete_post(post_id):
@@ -183,20 +189,19 @@ def delete_post(post_id):
     return redirect(url_for('home'))
 
 
+# Shows post page
 @app.route("/post/<int:post_id>")
 def show_post(post_id):
     requested_post = BlogPost.query.get(post_id)
-    return render_template('post.html', post=requested_post)
+    return render_template('post.html', post=requested_post, year=year)
 
 
+# Shows list of all posts of a particular category
 @app.route('/post-category/<category>')
 def post_category(category):
     posts = BlogPost.query.filter_by(genre=category)
     category_name = category
-    if category == 'Random Thoughts':
-        category = 'Random-Thoughts'
-        category_name = 'Random Thoughts'
-    elif category == 'Tech':
+    if category == 'Tech':
         category_name = 'Technology'
     category_pics = {
         'Random Thoughts': 'https://images.unsplash.com/photo-1495567720989-cebdbdd97913?ixlib=rb-4.0.3&ixid=MnwxMjA3f'
@@ -212,7 +217,8 @@ def post_category(category):
                            posts=posts,
                            category=category_name,
                            user=current_user,
-                           filepath=category_pics[category_name])
+                           filepath=category_pics[category_name],
+                           year=year)
 
 
 if __name__ == '__main__':
@@ -221,3 +227,5 @@ if __name__ == '__main__':
 
 # TODO: Comments???
 # TODO: Email validation: line 9 on wtforms.validators says to import email_validator, but it isn't working
+# TODO: Edit posts under admin control
+# TODO: Send out email to account holders about new posts
