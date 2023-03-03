@@ -17,10 +17,15 @@ height: 100vh;
 text-align: center;
 }
 
-@media (max-width: 900px) and (orientation: portrait)
- {
+@media (max-width: 900px) and (orientation: portrait) {
 .title-container {
 height: 50vh;
+}
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+.title-container {
+height: 120vh;
 }
 }
 
